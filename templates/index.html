@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption Tool</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Encryption/Decryption Tool</h1>
+        <form action="/" method="post">
+            <textarea name="message" placeholder="Enter your message here"></textarea>
+            <input type="text" name="key" placeholder="Enter your key here for decryption">
+            <input type="text" name="encrypted_message" placeholder="Enter encrypted message for decryption">
+            <input type="submit" name="operation" value="Encrypt">
+            <input type="submit" name="operation" value="Decrypt">
+        </form>
+        {% if encrypted_message %}
+            <p>Encrypted Message: {{ encrypted_message }}</p>
+            <p>Key: {{ key }}</p>
+        {% elif decrypted_message %}
+            <p>Decrypted Message: {{ decrypted_message }}</p>
+        {% elif error %}
+            <p>Error: {{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
